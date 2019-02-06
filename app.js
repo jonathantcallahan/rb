@@ -36,12 +36,9 @@ comments.on('comment', comment => {
         url.forEach((e,i) => {
             if(~e.search('amazon') && !product) product = url[i + 1].replace(/\-/g,' ')
         })
-        request(`https://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=${process.env.EBAY_APP_ID}&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&keywords=${product.replace(/\s/g,'%20')}&itemFilter(0).name=FreeShippingOnly&itemFilter(0).value=true`
-        , function(err, response, body){
-            console.log(JSON.parse(body).findItemsByKeywordsResponse[0].searchResult || err)
-            // console.log(JSON.parse(body).findItemsByKeywordsResponse[0].errorMessage[0].error)
-        })
-        comment.reply('test')
+        //request(`https://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=${process.env.EBAY_APP_ID}&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&keywords=${product.replace(/\s/g,'%20')}&itemFilter(0).name=FreeShippingOnly&itemFilter(0).value=true`)
+        const response = '**It looks like this user has linked to a product on Amazon** \n \n *Before you make a purchase consider, is this product...* \n \n * a different version of something that you already own, and could you be content with the version you already have? \n \n * something that you could make, or reasonable learn to make? \n \n * something that you would use regularly for an extended period of time? If not, is it something that you could borrow or rent? \n \n * going to bring more happiness into your life? \n \n &nbsp; &nbsp; \n \n If do decide you need to purchase this product, have you checked eBay and Craigslist?'
+        comment.reply(response)
 
     } else {
         console.log(body)
