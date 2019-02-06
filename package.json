@@ -18,6 +18,8 @@
   "homepage": "https://github.com/jonathantcallahan/rb#readme",
   "dependencies": {
     "dotenv": "^6.2.0",
+    "nodemon": "^1.18.9",
+    "request": "^2.88.0",
     "snoostorm": "0.0.5",
     "snoowrap": "^1.15.2"
   }
